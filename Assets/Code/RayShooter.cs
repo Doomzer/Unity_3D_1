@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class RayShooter : MonoBehaviour
 {
-    private Camera _camera;    
+    private Camera _camera;
+
+    public bool Lock = false;
 
     // Use this for initialization
     void Start ()
     {
         _camera = GetComponent<Camera>();
-        Cursor.lockState = CursorLockMode.Locked; // Скрываем указатель мыши
+        if (Lock == true)
+          Cursor.lockState = CursorLockMode.Locked; // Скрываем указатель мыши
         Cursor.visible = false;
     }
 
