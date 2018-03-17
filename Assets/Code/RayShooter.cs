@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems; // Подключение библиотеки для UI-системы.
 
 public class RayShooter : MonoBehaviour
 {
     private Camera _camera;
 
     public bool Lock = false;
+    public bool Cursor_visible = false;
 
     // Use this for initialization
     void Start ()
@@ -14,7 +16,7 @@ public class RayShooter : MonoBehaviour
         _camera = GetComponent<Camera>();
         if (Lock == true)
           Cursor.lockState = CursorLockMode.Locked; // Скрываем указатель мыши
-        Cursor.visible = false;
+        Cursor.visible = Cursor_visible;
     }
 
     void OnGUI()
@@ -28,7 +30,7 @@ public class RayShooter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject()/*Проверяем, что GUI не используется*/)
         {
             Vector3 point = new Vector3(_camera.pixelWidth / 2, _camera.pixelHeight / 2, 0);
             Ray ray = _camera.ScreenPointToRay(point);
