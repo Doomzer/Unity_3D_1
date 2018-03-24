@@ -21,10 +21,11 @@ public class SettingsPopup : MonoBehaviour
     {
         Debug.Log(name);
     }
+
     public void OnSpeedValue(float speed) //Этот метод срабатывает при изменении положения ползунка.
     {
         PlayerPrefs.SetFloat("speed", speed);
-        Debug.Log("Speed: " + speed);
+        Messenger<float>.Broadcast(GameEvent.SPEED_CHANGED, speed); //Значение, заданное положением ползунка, рассылается как событие <float>.
     }
 
     void Start()

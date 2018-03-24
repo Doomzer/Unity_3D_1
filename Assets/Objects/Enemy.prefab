@@ -99,7 +99,7 @@ MonoBehaviour:
   fireballPrefab: {fileID: 1539600094556880, guid: 7714dc02ec4e56943a28ca0d7e8ac4d4,
     type: 2}
   speed: 3
-  obstacleRange: 1
+  obstacleRange: 5
 --- !u!114 &114686766223342672
 MonoBehaviour:
   m_ObjectHideFlags: 1

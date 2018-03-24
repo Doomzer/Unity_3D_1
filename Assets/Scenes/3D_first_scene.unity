@@ -1460,7 +1460,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 1686967402520300, guid: dcb52c6bce1ea914a926bc2858c212db,
     type: 2}
-  set_enemy_number: 2
+  set_enemy_number: 5
 --- !u!4 &996492629
 Transform:
   m_ObjectHideFlags: 0
@@ -5739,7 +5739,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c68c73f062e8aa499d5e85f5d139dbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
   gravity: -9.8
 --- !u!114 &1534294112
 MonoBehaviour:

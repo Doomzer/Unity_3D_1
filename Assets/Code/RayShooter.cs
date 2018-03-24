@@ -40,7 +40,10 @@ public class RayShooter : MonoBehaviour
                 GameObject hitObject = hit.transform.gameObject; //Получаем объект, в который попал луч.
                 ReactiveTarget target = hitObject.GetComponent<ReactiveTarget>();
                 if (target != null) //Проверяем наличие у этого объекта компонента ReactiveTarget.
+                {
                     target.ReactToHit();
+                    Messenger.Broadcast(GameEvent.ENEMY_HIT); //К реакции на попадания добавлена рассылка сообщения.
+                }
                 else
                     StartCoroutine(SphereIndicator(hit.point));
             }

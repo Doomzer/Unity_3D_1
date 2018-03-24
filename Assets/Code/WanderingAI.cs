@@ -8,9 +8,26 @@ public class WanderingAI : MonoBehaviour
     private GameObject _fireball;
 
     public float speed = 3.0f;
-    public float obstacleRange = 1.0f;
+    public float obstacleRange = 5.0f;
+
+    public const float baseSpeed = 3.0f; //Базовая скорость, меняемая в соответствии с положением ползунка.
 
     private bool _alive;
+
+    void Awake()
+    {
+        Messenger<float>.AddListener(GameEvent.SPEED_CHANGED, OnSpeedChanged);
+    }
+
+    void OnDestroy()
+    {
+        Messenger<float>.RemoveListener(GameEvent.SPEED_CHANGED, OnSpeedChanged);
+    }
+
+    private void OnSpeedChanged(float value) //Метод, объявленный в подписчике для события SPEED_CHANGED.
+    {
+        speed = baseSpeed * value;
+    }
 
     // Use this for initialization
     void Start ()
